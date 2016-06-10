@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="ISO-8859-1">
+		<link rel="stylesheet" href="index.css">
+	<title>UNSET</title>
+	</head>
+	<body>
+		<h1>EDITABLE CONTENT PAGE</h1>		
+		<p><b id="field">You can edit this.</b></p>
+	<!-- 		BUTTONS -->
+		<button id="editButton" type="button" onclick="edit()">EDIT</button>
+		<button id="saveButton" type="button" onclick="save()" style="visibility: hidden">SAVE</button>
+		<button id="cancelButton" type="button" onclick="cancel()" style="visibility: hidden">CANCEL</button>
+	<!-- 		/BUTTONS -->
+
+<!-- END OF BODY -->
+
+		<script>
+		
+		 var beforeEditContent;
+		 
+			function edit() {				
+			    var field = document.getElementById("field");
+			    var editButton = document.getElementById("editButton");	
+			    var saveButton = document.getElementById("saveButton");
+			    var cancelButton = document.getElementById("cancelButton");
+			    
+			    field.setAttribute('contenteditable', true);			    
+			    editButton.style.visibility = "hidden";		
+			    saveButton.style.visibility = "visible";
+			    cancelButton.style.visibility = "visible";	
+			    beforeEditContent = document.getElementById("field").innerHTML;			    
+			}
+			
+			function save() {			
+				var field = document.getElementById("field");
+			    var editButton = document.getElementById("editButton");	
+			    var saveButton = document.getElementById("saveButton");
+			    var cancelButton = document.getElementById("cancelButton");			    
+			    
+			    field.setAttribute('contenteditable', false);			    
+			    editButton.style.visibility = "visible";	
+			    saveButton.style.visibility = "hidden";	
+			    cancelButton.style.visibility = "hidden";	
+			}
+			function cancel() {			
+				var field = document.getElementById("field");
+			    var editButton = document.getElementById("editButton");	
+			    var saveButton = document.getElementById("saveButton");
+			    var cancelButton = document.getElementById("cancelButton");
+			    
+			    field.innerHTML = beforeEditContent;
+			    field.setAttribute('contenteditable', false);			    
+			    editButton.style.visibility = "visible";	
+			    saveButton.style.visibility = "hidden";		
+			    cancelButton.style.visibility = "hidden";	
+			}
+						
+		</script>
+		
+	</body>
+</html>
